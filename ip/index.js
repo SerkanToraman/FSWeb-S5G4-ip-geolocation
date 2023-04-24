@@ -31,7 +31,9 @@ async function ipAdresimiAl(){
 	NOT: Bilgisayarın IP adresini öğrenmek için: https://apis.ergineer.com/ipadresim 
 	ADIM 5'e gelene kadar fonksiyonunuzu test etmek için ip nizi URL'ye manuel olarak ekleyebilirsiniz.
 */
-const productPromise =axios.get("https://apis.ergineer.com/ipgeoapi/176.234.90.126")
+// const productPromise =axios.get("https://apis.ergineer.com/ipgeoapi/176.234.90.126")
+
+// console.log('a >',productPromise)
 
 /*
 	ADIM 2: Geri döndürülen verileri inceleyin, bu sizin ip bilgileriniz! Bileşen fonksiyonunuzu geliştirmek içindeki bu veri yapısını
@@ -41,10 +43,10 @@ const productPromise =axios.get("https://apis.ergineer.com/ipgeoapi/176.234.90.1
 
 
 
-productPromise
-	.then((response)=>{
-		console.log("products >",DomYapici(response.data))
-	});
+// productPromise
+// 	.then((response)=>{
+// 		console.log("products >",DomYapici(response.data))
+// 	});
 
 /*
 	ADIM 3: Argümanı sadece 1 nesne kabül eden bir fonksiyon oluşturun.
@@ -119,15 +121,13 @@ const DomYapici = (product) => {
 	ADIM 4: API'den alınan verileri kullanarak ADIM 3'te verilen yapıda bir kart oluşturun ve 
 	bu kartı DOM olarak .cards elementinin içine ekleyin. 
 */
-const productContainer = document.querySelector('.cards');
+// const productContainer = document.querySelector('.cards');
 
-productPromise
-	.then((response)=>{
-		console.log("products >",DomYapici(response.data))
-		productContainer.append(DomYapici(response.data));
-	});
-
-
+// productPromise
+// 	.then((response)=>{
+// 		console.log("products >",DomYapici(response.data))
+// 		productContainer.append(DomYapici(response.data));
+// 	});
 
 
 
@@ -138,6 +138,17 @@ productPromise
 	bilgisayarınızın IP adresini atayacaktır. 
 	Örnek dinamik URL kullanımı: var url = "https://apis.ergineer.com/ipgeoapi/"+benimIP; 
 */
+
+async function productPromiseAuto (parametre){	
+	await ipAdresimiAl();
+	const productContainer = document.querySelector('.cards');
+	const productPromise =axios.get(`https://apis.ergineer.com/ipgeoapi/${benimIP}`);
+		productPromise.then((response)=>{
+			productContainer.append(DomYapici(response.data));
+		})
+}
+
+productPromiseAuto();
 
 
 

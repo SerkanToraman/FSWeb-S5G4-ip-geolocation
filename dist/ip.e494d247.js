@@ -13455,6 +13455,39 @@ function ipAdresimiAl() {
 	NOT: Bilgisayarın IP adresini öğrenmek için: https://apis.ergineer.com/ipadresim 
 	ADIM 5'e gelene kadar fonksiyonunuzu test etmek için ip nizi URL'ye manuel olarak ekleyebilirsiniz.
 */
+// const productPromise =axios.get("https://apis.ergineer.com/ipgeoapi/176.234.90.126")
+// console.log('a >',productPromise)
+/*
+	ADIM 2: Geri döndürülen verileri inceleyin, bu sizin ip bilgileriniz! Bileşen fonksiyonunuzu geliştirmek içindeki bu veri yapısını
+	iyice anlamanız gerekmektedir.
+	
+*/
+// productPromise
+// 	.then((response)=>{
+// 		console.log("products >",DomYapici(response.data))
+// 	});
+/*
+	ADIM 3: Argümanı sadece 1 nesne kabül eden bir fonksiyon oluşturun.
+    DOM metotlarını ve özelliklerini kullanarak, şunları gerçekleştirin:
+	
+	<div class="card">
+		<img src={ülke bayrağı url} />
+		<div class="card-info">
+			<h3 class="ip">{ip adresi}</h3>
+			<p class="ulke">{ülke bilgisi (ülke kodu)}</p>
+			<p>Enlem: {enlem} Boylam: {boylam}</p>
+			<p>Şehir: {şehir}</p>
+			<p>Saat dilimi: {saat dilimi}</p>
+			<p>Para birimi: {para birimi}</p>
+			<p>ISP: {isp}</p>
+	</div>
+    </div>
+*/
+/**
+ * 
+ * @param {*} product 
+ * @returns Container DOM Object
+ */
 function _ipAdresimiAl() {
   _ipAdresimiAl = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -13477,42 +13510,6 @@ function _ipAdresimiAl() {
   }));
   return _ipAdresimiAl.apply(this, arguments);
 }
-var productPromise = _axios.default.get("https://apis.ergineer.com/ipgeoapi/176.234.90.126");
-
-/*
-	ADIM 2: Geri döndürülen verileri inceleyin, bu sizin ip bilgileriniz! Bileşen fonksiyonunuzu geliştirmek içindeki bu veri yapısını
-	iyice anlamanız gerekmektedir.
-	
-*/
-
-productPromise.then(function (response) {
-  console.log("products >", DomYapici(response.data));
-});
-
-/*
-	ADIM 3: Argümanı sadece 1 nesne kabül eden bir fonksiyon oluşturun.
-    DOM metotlarını ve özelliklerini kullanarak, şunları gerçekleştirin:
-	
-	<div class="card">
-		<img src={ülke bayrağı url} />
-		<div class="card-info">
-			<h3 class="ip">{ip adresi}</h3>
-			<p class="ulke">{ülke bilgisi (ülke kodu)}</p>
-			<p>Enlem: {enlem} Boylam: {boylam}</p>
-			<p>Şehir: {şehir}</p>
-			<p>Saat dilimi: {saat dilimi}</p>
-			<p>Para birimi: {para birimi}</p>
-			<p>ISP: {isp}</p>
-	</div>
-    </div>
-*/
-
-/**
- * 
- * @param {*} product 
- * @returns Container DOM Object
- */
-
 var DomYapici = function DomYapici(product) {
   var container = document.createElement('div');
   container.classList.add('card');
@@ -13552,11 +13549,13 @@ var DomYapici = function DomYapici(product) {
 	ADIM 4: API'den alınan verileri kullanarak ADIM 3'te verilen yapıda bir kart oluşturun ve 
 	bu kartı DOM olarak .cards elementinin içine ekleyin. 
 */
-var productContainer = document.querySelector('.cards');
-productPromise.then(function (response) {
-  console.log("products >", DomYapici(response.data));
-  productContainer.append(DomYapici(response.data));
-});
+// const productContainer = document.querySelector('.cards');
+
+// productPromise
+// 	.then((response)=>{
+// 		console.log("products >",DomYapici(response.data))
+// 		productContainer.append(DomYapici(response.data));
+// 	});
 
 /*
 	ADIM 5: Manuel olarak eklediğiniz IP adresini dinamiğe dönüştürün. 
@@ -13565,6 +13564,32 @@ productPromise.then(function (response) {
 	bilgisayarınızın IP adresini atayacaktır. 
 	Örnek dinamik URL kullanımı: var url = "https://apis.ergineer.com/ipgeoapi/"+benimIP; 
 */
+function productPromiseAuto(_x) {
+  return _productPromiseAuto.apply(this, arguments);
+}
+function _productPromiseAuto() {
+  _productPromiseAuto = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(parametre) {
+    var productContainer, productPromise;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return ipAdresimiAl();
+        case 2:
+          productContainer = document.querySelector('.cards');
+          productPromise = _axios.default.get("https://apis.ergineer.com/ipgeoapi/".concat(benimIP));
+          productPromise.then(function (response) {
+            productContainer.append(DomYapici(response.data));
+          });
+        case 5:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2);
+  }));
+  return _productPromiseAuto.apply(this, arguments);
+}
+productPromiseAuto();
 
 //kodlar buraya gelecek
 },{"axios":"node_modules/axios/index.js","babel-core/register":"node_modules/babel-core/register.js","babel-polyfill":"node_modules/babel-polyfill/lib/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -13592,7 +13617,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64115" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
